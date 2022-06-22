@@ -1,24 +1,24 @@
 package main
 
 import (
-  "os"
-  "log"
-  lexer "json_parser/lexer"
-  parser "json_parser/parser"
+	"log"
+	"os"
 )
 
-func main()  {
-  if len(os.Args) > 1 {
-    load_json(os.Args[1])
-  }
+var tokens []string
+
+func main() {
+	if len(os.Args) > 1 {
+		load_json(os.Args[1])
+	}
 }
 
 func load_json(file string) {
-  bytes, error := os.ReadFile(file)
-  if error != nil {
-    log.Fatal(error)
-  }
-  json := string(bytes[:])
-  lexer.Init(json)
-  parser.Init(lexer.Tokens)
+	bytes, err := os.ReadFile(file)
+	if err != nil {
+		log.Fatal(err)
+	}
+	json := string(bytes[:])
+	Lex(json)
+	Parse(tokens)
 }

@@ -1,0 +1,9 @@
+{
+  "string":"test",
+  "int": 5,
+  "bool": true,
+  "array": [1,2],
+  "object": {
+    "item": 10
+  }
+}
